@@ -257,7 +257,7 @@ def _run_scorers(
   overallTime = time.perf_counter() - overallStartTime
   print(
     f"""----
-    Completed individual scorers. Ran in parallel: {runParallel}.  Succeeded in {overallTime:.2f} seconds. 
+    Completed individual scorers. Ran in parallel: {runParallel}.  Succeeded in {overallTime:.2f} seconds.
     Individual scorers: (name, runtime): {list(zip(
       [scorer.get_name() for scorer in scorers],
       ['{:.2f}'.format(t/60.0) + " mins" for t in scorerTimes]
