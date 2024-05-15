@@ -60,8 +60,15 @@ bits_and_bytes = args.bits_and_bytes
 #     'loss': args.loss
 # })
 
-train_data = pd.read_csv(train_file)
-val_data = pd.read_csv(val_file)
+# if 'csv' in train_file:
+if 'csv' in train_file:
+    train_data = pd.read_csv(train_file)
+    val_data = pd.read_csv(val_file)
+elif 'tsv' in train_file:
+    train_data = pd.read_csv(train_file, sep='\t')
+    val_data = pd.read_csv(val_file, sep='\t')
+else:
+    raise ValueError('File type not supported')
 
 # convert from chosen, rejected, and nmargin to 
 # input_ids_chosen
